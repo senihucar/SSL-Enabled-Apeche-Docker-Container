@@ -1,0 +1,14 @@
+version: '3'
+services:
+  apache-test:
+    build: .
+#    image: httpd:2.4-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./html/:/var/www/test/
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+#      - /path/to/local/conf/ssl.conf:/etc/apache2/conf.d/ssl.conf
+#      - ath/to/local/.htpasswd:/etc/apache2/.htpasswd
